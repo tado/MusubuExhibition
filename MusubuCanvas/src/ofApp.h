@@ -2,6 +2,7 @@
 
 #include "ofMain.h"
 #include "ofxOsc.h"
+#include "ThumbButton.h"
 
 class ofApp : public ofBaseApp {
 
@@ -9,6 +10,7 @@ public:
 	void setup();
 	void update();
 	void draw();
+	void switchSketch(int n);
 
 	void keyPressed(int key);
 	void keyReleased(int key);
@@ -27,5 +29,5 @@ public:
 	int total;
 
 	ofImage title;
-	ofImage thumb[11];
+	vector<ThumbButton *> thumb;
 };
