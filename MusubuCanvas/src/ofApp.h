@@ -25,4 +25,7 @@ public:
 	ofxOscSender sender;
 	int current;
 	int total;
+
+	ofImage title;
+	ofImage thumb[11];
 };
