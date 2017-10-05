@@ -19,11 +19,12 @@ void ofApp::setup(){
 		for (int i = 0; i < col; i++) {
 			if (j * col + i < 11) {
 				string filename = to_string(j * col + i) + ".jpg";
+				string nameImgName = "name"+ to_string(j * col + i) + ".png";
 				int x = i * imageWidth;
 				int y = ofGetHeight() / 3 + j * imageHeight;
 				ofVec2f pos;
 				pos.set(x, y);
-				ThumbButton *t = new ThumbButton(j*col+i, filename, pos, imageWidth, imageHeight);
+				ThumbButton *t = new ThumbButton(j*col+i, filename, nameImgName, pos, imageWidth, imageHeight);
 				thumb.push_back(t);
 			}
 		}
@@ -48,6 +49,9 @@ void ofApp::draw(){
 }
 
 void ofApp::switchSketch(int n) {
+	for (int i = 0; i < thumb.size(); i++) {
+		thumb[i]->running = false;
+	}
 	ofxOscMessage m;
 	m.setAddress("/switch");
 	m.addIntArg(n);
