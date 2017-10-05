@@ -3,7 +3,7 @@ class ImageContainer {
   public PImage resizedImage;
   public PVector imgVector;
   int GRID = 10;
-  
+
   ImageContainer(PImage sourceImg) {
     this.sourceImage = sourceImg;
   }

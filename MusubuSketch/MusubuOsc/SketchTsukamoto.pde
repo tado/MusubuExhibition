@@ -7,8 +7,7 @@ public class SketchTsukamoto extends AppBase {
     super(parentApplet);
   }
 
-  @Override
-    void setup() {
+  @Override void setup() {
     frameRate(60);
     colorMode(HSB, width, height, 100);
     noStroke();
@@ -16,12 +15,14 @@ public class SketchTsukamoto extends AppBase {
     background(0);
   }
 
-  @Override
-    void draw() {
-    int whichBar = mouseX / barWidth;
+  @Override void draw() {
+    //autoplay mode
+    int whichBar = int(sin(frameCount/20.0) * width/2 + width/2) / barWidth;
+    //int whichBar = mouseX / barWidth;
     if (whichBar != lastBar) {
       int barX = whichBar * barWidth;
-      fill(barX, mouseY, 66);
+      //fill(barX, mouseY, 66);
+      fill(barX, random(190,255), 66);
       rect(barX, 0, barWidth, height);
       lastBar = whichBar;
     }

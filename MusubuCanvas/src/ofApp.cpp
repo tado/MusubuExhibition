@@ -31,6 +31,7 @@ void ofApp::setup(){
 	}
 
 	//ofToggleFullscreen();
+	//ofHideCursor();
 }
 
 //--------------------------------------------------------------

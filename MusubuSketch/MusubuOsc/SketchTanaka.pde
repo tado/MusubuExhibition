@@ -11,9 +11,14 @@ public class SketchTanaka extends AppBase {
   @Override void setup() {
     colorMode(RGB, 255, 255, 255, 255);
     frameRate(20);
-    FloatList locX = new FloatList();
-    FloatList locY = new FloatList();
+    //FloatList locX = new FloatList();
+    //FloatList locY = new FloatList();
     background(0);
+
+    locX.clear();
+    locY.clear();
+    locX.append(random(200, width-200));
+    locY.append(random(200, height-200));
   }
 
   @Override void draw() {
@@ -24,7 +29,7 @@ public class SketchTanaka extends AppBase {
     fill(light);
     noStroke();
 
-    ellipse(mouseX, mouseY, en, en);
+    //ellipse(mouseX, mouseY, en, en);
 
     for (int i = 0; i < locX.size(); i++) {
       ellipse(locX.get(i), locY.get(i), en, en);
@@ -33,13 +38,21 @@ public class SketchTanaka extends AppBase {
     stroke(255, 255, 255, 95);
     noFill();
 
-    for (int i = 1; i < locX.size()-1; i++) {
+    for (int i = 0; i < locX.size()-1; i++) {
       line(locX.get(i), locY.get(i), locX.get(i+1), locY.get(i+1));
+    }
+
+    //auto play mode
+    if(frameCount % 30 == 0){
+      locX.append(random(200, width-200));
+      locY.append(random(200, height-200));
     }
   }
 
+ /*
   @Override void mouseReleased() {
     locX.append(mouseX);
     locY.append(mouseY);
   }
+  */
 }

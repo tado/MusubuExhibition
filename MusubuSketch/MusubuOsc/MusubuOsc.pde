@@ -10,6 +10,7 @@ OscP5 oscP5;
 
 void setup() {
   fullScreen(1);
+  //size(1920, 1080);
 
   //AppList
   apps = new ArrayList<AppBase>();
