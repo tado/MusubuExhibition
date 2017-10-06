@@ -30,8 +30,8 @@ void ofApp::setup(){
 		}
 	}
 
-	//ofToggleFullscreen();
-	//ofHideCursor();
+	ofToggleFullscreen();
+	ofHideCursor();
 }
 
 //--------------------------------------------------------------
@@ -53,11 +53,13 @@ void ofApp::switchSketch(int n) {
 	for (int i = 0; i < thumb.size(); i++) {
 		thumb[i]->running = false;
 	}
-	ofxOscMessage m;
-	m.setAddress("/switch");
-	m.addIntArg(n);
-	sender.sendMessage(m, false);
-	cout << "send osc : current = " << n << endl;
+	if (n < 10) {
+		ofxOscMessage m;
+		m.setAddress("/switch");
+		m.addIntArg(n);
+		sender.sendMessage(m, false);
+		cout << "send osc : current = " << n << endl;
+	}
 }
 
 //--------------------------------------------------------------
